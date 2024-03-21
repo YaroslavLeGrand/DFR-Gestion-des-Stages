@@ -18,4 +18,22 @@ class PageController extends AbstractController {
         return $this->render('PageConnexion.html.twig');
     }
 
+    /**
+     * @Route("Accueil",name="ListeEntreprise")
+     */
+    function PageEntreprise(Request $requeteHTTP,ManagerRegistry $doctrine){
+        
+
+        return $this->render('ListeEntreprise.html.twig');
+    }
+
+    /**
+     * @Route("Detail",name="DetailEntreprise")
+     */
+    function PageDetailEntreprise(Request $requeteHTTP,ManagerRegistry $doctrine){
+        
+
+        return $this->render('DetailEntreprise.html.twig');
+    }
+
 }
