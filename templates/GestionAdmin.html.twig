@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>{% block title %}Welcome!{% endblock %}</title>
+        
+    </head>
+    <body>
+        <table>
+            <tr>
+                <th colspan=3>Gestion des Utilisateurs</th>
+
+                <td><a href="{{ path('DetailEntreprise')}}">
+                <button type=submit >Ajouter un Utilisateur [temp]</button>
+                </a></td>
+                <td><a>
+                <button type=submit >Modifier un Utilisateur [off]</button>
+                </a></td>
+                <td><a>
+                <button type=submit >Supprimer un Utilisateur [off]</button>
+                <a></td>
+    </table>
+    </body>
+</html>

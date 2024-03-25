@@ -39,6 +39,15 @@ class PageController extends AbstractController {
     }
 
     /**
+     * @Route("BigBother.crypto",name="GestionAdmin")
+     */
+    function GestionAdmin(Request $requeteHTTP,ManagerRegistry $doctrine){
+        
+
+        return $this->render('GestoinAdmin.html.twig');
+    }
+
+    /**
      * @Route("AjoutUtilisateur.pdf",name="AjoutUtilisateur")
      */
     function AjoutEntreprise (Request $requeteHTTP,ManagerRegistry $doctrine){
@@ -48,12 +57,12 @@ class PageController extends AbstractController {
         if ($formulaireAjout->isSubmitted() && $formulaireAjout->isValid())
         {
             $entityManager = $doctrine->getManager();
-            $annonceInfos = $formulaireAjout->getData();
-            $entityManager->persist($annonceInfos);
+            $UtilInfos = $formulaireAjout->getData();
+            $entityManager->persist($UtilInfos);
             $entityManager->flush();
-            return $this->redirectToRoute("listeAnnonces");
+            return $this->redirectToRoute("GetionAdmin");
         }
-        return $this->render('ajouteannonces.html.twig', ['annonceForm'=> $formulaireAjout->createView()]);
+        return $this->render('TwigUtilisateur.html.twig', ['UtilForm'=> $formulaireAjout->createView()]);
     }
 
 }

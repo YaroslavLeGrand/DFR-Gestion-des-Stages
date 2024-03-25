@@ -1,0 +1,20 @@
+<h1>Saisie des annonces</h1>
+    {{ form_start(UtilForm) }}
+    <table border=0>
+    <tr>
+        <td>{{form_label(UtilForm.Identifiant)}}</td>
+        <td>{{form_widget(UtilForm.Identifiant)}}</td>
+    </tr>
+    <tr>
+        <td>{{form_label(UtilForm.MotDePasse)}}</td>
+        <td>{{form_widget(UtilForm.MotDePasse)}}</td>
+    </tr>
+    <tr>
+        <td >{{form_label(UtilForm.IdRole)}}</td>
+        <td>{{form_widget(UtilForm.IdRole)}}</td>
+    </tr>
+    </table>
+    {{ form_end(annonceForm) }}
+    <a href="{{ path('GestionAdmin')}}">
+        <button type=submit >Annuler</button>
+    </a>
