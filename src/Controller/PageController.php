@@ -44,11 +44,11 @@ class PageController extends AbstractController {
     function GestionAdmin(Request $requeteHTTP,ManagerRegistry $doctrine){
         
 
-        return $this->render('GestoinAdmin.html.twig');
+        return $this->render('GestionAdmin.html.twig');
     }
 
     /**
-     * @Route("AjoutUtilisateur.pdf",name="AjoutUtilisateur")
+     * @Route("Utilisateur.pdf",name="AjoutUtilisateur")
      */
     function AjoutEntreprise (Request $requeteHTTP,ManagerRegistry $doctrine){
         $util = new Utilisateur();
