@@ -1,7 +1,6 @@
 <?php
 namespace App\Controller;
 
-use App\Entity\Utilisateur;
 use App\Formulaire\UtilisateurType;
 
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
