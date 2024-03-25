@@ -18,11 +18,6 @@ class Utilisateur
     private $id;
 
     /**
-     * @ORM\Column(type="integer")
-     */
-    private $IdUtil;
-
-    /**
      * @ORM\Column(type="string", length=255)
      */
     private $Identifiant;
@@ -43,17 +38,6 @@ class Utilisateur
         return $this->id;
     }
 
-    public function getIdUtil(): ?int
-    {
-        return $this->IdUtil;
-    }
-
-    public function setIdUtil(int $IdUtil): self
-    {
-        $this->IdUtil = $IdUtil;
-
-        return $this;
-    }
 
     public function getIdentifiant(): ?string
     {
