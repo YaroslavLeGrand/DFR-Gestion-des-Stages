@@ -68,9 +68,10 @@ class PageController extends AbstractController {
         {
             $entityManager = $doctrine->getManager();
             $UtilInfos = $formulaireAjout->getData();
+            $UtilInfos->setMotDePasse(password_hash($UtilInfos->getMotDePasse(), PASSWORD_BCRYPT, ["cost"=>12]));
             $entityManager->persist($UtilInfos);
             $entityManager->flush();
-            return $this->redirectToRoute("GetionAdmin");
+            return $this->redirectToRoute("GestionAdmin");
         }
         return $this->render('TwigUtilisateur.html.twig', ['UtilForm'=> $formulaireAjout->createView()]);
     }
