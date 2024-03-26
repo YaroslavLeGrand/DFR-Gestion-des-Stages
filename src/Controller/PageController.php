@@ -1,6 +1,6 @@
 <?php
 namespace App\Controller;
-
+session_start();
 
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\Routing\Annotation\Route;
@@ -11,9 +11,10 @@ use Symfony\Component\HttpFoundation\Request;
 
 class PageController extends AbstractController {
     /**
-     * @Route("Login",name="PageConnxion")
+     * @Route("Login",name="PageConnexion")
      */
     function PageConnxion(Request $requeteHTTP,ManagerRegistry $doctrine){
+        if (isset($_SESSION['isConnected']) || $_SESSION['isConnected'] == true) {return $this->redirectToRoute('ListeEntreprise');}
         if ($_SERVER["REQUEST_METHOD"] == "POST") {
             $utilisateur = $doctrine->getRepository(Utilisateur::class)->findOneBy(['Identifiant' => $_POST['identifiant']]);
             $mdp = $utilisateur->getMotDePasse();
@@ -33,8 +34,8 @@ class PageController extends AbstractController {
      * @Route("Accueil",name="ListeEntreprise")
      */
     function PageEntreprise(Request $requeteHTTP,ManagerRegistry $doctrine){
+        if (!isset($_SESSION['isConnected']) || $_SESSION['isConnected'] != true) {return $this->redirectToRoute('PageConnexion');}
         
-
         return $this->render('ListeEntreprise.html.twig');
     }
 
@@ -42,7 +43,7 @@ class PageController extends AbstractController {
      * @Route("Detail",name="DetailEntreprise")
      */
     function PageDetailEntreprise(Request $requeteHTTP,ManagerRegistry $doctrine){
-        
+        if (!isset($_SESSION['isConnected']) || $_SESSION['isConnected'] != true) {return $this->redirectToRoute('PageConnexion');}
 
         return $this->render('DetailEntreprise.html.twig');
     }
