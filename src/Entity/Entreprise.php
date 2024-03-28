@@ -44,9 +44,20 @@ class Entreprise
      */
     private $Activitee;
 
+    /**
+     * @ORM\ManyToMany(targetEntity=Preferer::class, mappedBy="IdEntreprise")
+     */
+    private $IdPreferer;
+
+    /**
+     * @ORM\ManyToMany(targetEntity=Accueillir::class, mappedBy="IdEntreprise")
+     */
+    private $IdAccueillir;
+
     public function __construct()
     {
-       
+        $this->IdPreferer = new ArrayCollection();
+        $this->IdAccueillir = new ArrayCollection();
     }
 
     public function getId(): ?int
@@ -114,4 +125,57 @@ class Entreprise
         return $this;
     }
 
+    /**
+     * @return Collection<int, Preferer>
+     */
+    public function getIdPreferer(): Collection
+    {
+        return $this->IdPreferer;
+    }
+
+    public function addIdPreferer(Preferer $idPreferer): self
+    {
+        if (!$this->IdPreferer->contains($idPreferer)) {
+            $this->IdPreferer[] = $idPreferer;
+            $idPreferer->addIdEntreprise($this);
+        }
+
+        return $this;
+    }
+
+    public function removeIdPreferer(Preferer $idPreferer): self
+    {
+        if ($this->IdPreferer->removeElement($idPreferer)) {
+            $idPreferer->removeIdEntreprise($this);
+        }
+
+        return $this;
+    }
+
+    /**
+     * @return Collection<int, Accueillir>
+     */
+    public function getIdAccueillir(): Collection
+    {
+        return $this->IdAccueillir;
+    }
+
+    // public function addIdAcceillir(Accueillir $idAccueillir): self
+    // {
+    //     if (!$this->IdAccueillir->contains($idAccueillir)) {
+    //         $this->IdAccueillir[] = $idAccueillir;
+    //         $idAccueillir->addIdEntreprise($this);
+    //     }
+
+    //     return $this;
+    // }
+
+    // public function removeIdAcceillir(Accueillir $idAccueillir): self
+    // {
+    //     if ($this->IdAccueillir->removeElement($idAccueillir)) {
+    //         $idAccueillir->removeIdEntreprise($this);
+    //     }
+
+    //     return $this;
+    // }
 }

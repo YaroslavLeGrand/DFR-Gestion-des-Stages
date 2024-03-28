@@ -45,6 +45,11 @@ class Salarie
     private $IdPoste;
 
     /**
+     * @ORM\ManyToMany(targetEntity=Lier::class, mappedBy="IdSalarie")
+     */
+    private $IdLier;
+
+    /**
      * @ORM\ManyToOne(targetEntity=Entreprise::class)
      */
     private $IdEntreprise;
@@ -53,6 +58,7 @@ class Salarie
     {
         $this->IdTelephone = new ArrayCollection();
         $this->IdEmail = new ArrayCollection();
+        $this->IdLier = new ArrayCollection();
     }
 
     public function getId(): ?int
