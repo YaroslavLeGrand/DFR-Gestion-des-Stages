@@ -14,7 +14,7 @@ class PageController extends AbstractController {
      * @Route("Login",name="PageConnexion")
      */
     function PageConnxion(Request $requeteHTTP,ManagerRegistry $doctrine){
-        if (isset($_SESSION['isConnected']) || $_SESSION['isConnected'] == true) {return $this->redirectToRoute('ListeEntreprise');}
+        if (isset($_SESSION['isConnected']) && $_SESSION['isConnected'] == true) {return $this->redirectToRoute('ListeEntreprise');}
         if ($_SERVER["REQUEST_METHOD"] == "POST") {
             $utilisateur = $doctrine->getRepository(Utilisateur::class)->findOneBy(['Identifiant' => $_POST['identifiant']]);
             $mdp = $utilisateur->getMotDePasse();
