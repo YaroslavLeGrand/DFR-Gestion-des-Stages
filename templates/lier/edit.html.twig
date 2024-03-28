@@ -1,0 +1,13 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Edit Lier{% endblock %}
+
+{% block body %}
+    <h1>Edit Lier</h1>
+
+    {{ include('lier/_form.html.twig', {'button_label': 'Update'}) }}
+
+    <a href="{{ path('app_lier_index') }}">back to list</a>
+
+    {{ include('lier/_delete_form.html.twig') }}
+{% endblock %}

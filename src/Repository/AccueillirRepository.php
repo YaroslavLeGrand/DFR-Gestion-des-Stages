@@ -40,7 +40,7 @@ class AccueillirRepository extends ServiceEntityRepository
     }
 
 //    /**
-//     * @return Accueillir[] Returns an array of Accueillir objects
+//     * @return Accuiellir[] Returns an array of Accuiellir objects
 //     */
 //    public function findByExampleField($value): array
 //    {
@@ -54,7 +54,7 @@ class AccueillirRepository extends ServiceEntityRepository
 //        ;
 //    }
 
-//    public function findOneBySomeField($value): ?Accueillir
+//    public function findOneBySomeField($value): ?Accuiellir
 //    {
 //        return $this->createQueryBuilder('a')
 //            ->andWhere('a.exampleField = :val')

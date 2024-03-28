@@ -1,0 +1,11 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}New Preferer{% endblock %}
+
+{% block body %}
+    <h1>Create new Preferer</h1>
+
+    {{ include('preferer/_form.html.twig') }}
+
+    <a href="{{ path('app_preferer_index') }}">back to list</a>
+{% endblock %}

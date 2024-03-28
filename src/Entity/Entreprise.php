@@ -52,12 +52,12 @@ class Entreprise
     /**
      * @ORM\ManyToMany(targetEntity=Accueillir::class, mappedBy="IdEntreprise")
      */
-    private $IdAcceillir;
+    private $IdAccueillir;
 
     public function __construct()
     {
         $this->IdPreferer = new ArrayCollection();
-        $this->IdAcceillir = new ArrayCollection();
+        $this->IdAccueillir = new ArrayCollection();
     }
 
     public function getId(): ?int
@@ -155,27 +155,27 @@ class Entreprise
     /**
      * @return Collection<int, Accueillir>
      */
-    public function getIdAcceillir(): Collection
+    public function getIdAccueillir(): Collection
     {
-        return $this->IdAcceillir;
+        return $this->IdAccueillir;
     }
 
-    public function addIdAcceillir(Accueillir $idAcceillir): self
-    {
-        if (!$this->IdAcceillir->contains($idAcceillir)) {
-            $this->IdAcceillir[] = $idAcceillir;
-            $idAcceillir->addIdEntreprise($this);
-        }
+    // public function addIdAcceillir(Accueillir $idAccueillir): self
+    // {
+    //     if (!$this->IdAccueillir->contains($idAccueillir)) {
+    //         $this->IdAccueillir[] = $idAccueillir;
+    //         $idAccueillir->addIdEntreprise($this);
+    //     }
 
-        return $this;
-    }
+    //     return $this;
+    // }
 
-    public function removeIdAcceillir(Accueillir $idAcceillir): self
-    {
-        if ($this->IdAcceillir->removeElement($idAcceillir)) {
-            $idAcceillir->removeIdEntreprise($this);
-        }
+    // public function removeIdAcceillir(Accueillir $idAccueillir): self
+    // {
+    //     if ($this->IdAccueillir->removeElement($idAccueillir)) {
+    //         $idAccueillir->removeIdEntreprise($this);
+    //     }
 
-        return $this;
-    }
+    //     return $this;
+    // }
 }

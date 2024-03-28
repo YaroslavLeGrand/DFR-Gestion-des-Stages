@@ -1,0 +1,22 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Lier{% endblock %}
+
+{% block body %}
+    <h1>Lier</h1>
+
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>Annee</th>
+                <td>{{ lier.Annee ? lier.Annee|date('Y-m-d H:i:s') : '' }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <a href="{{ path('app_lier_index') }}">back to list</a>
+
+    <a href="{{ path('app_lier_edit', {'IdProfil': lier.IdProfil}) }}">edit</a>
+
+    {{ include('lier/_delete_form.html.twig') }}
+{% endblock %}

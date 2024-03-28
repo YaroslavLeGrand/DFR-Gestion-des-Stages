@@ -3,8 +3,6 @@
 namespace App\Entity;
 
 use App\Repository\LierRepository;
-use Doctrine\Common\Collections\ArrayCollection;
-use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
@@ -12,38 +10,25 @@ use Doctrine\ORM\Mapping as ORM;
  */
 class Lier
 {
-    /**
-     * @ORM\Id
-     * @ORM\GeneratedValue
-     * @ORM\Column(type="integer")
-     */
-    private $id;
 
     /**
-     * @ORM\Column(type="date", nullable=true)
+     * @ORM\Column(type="datetime", nullable=true)
      */
     private $Annee;
 
     /**
-     * @ORM\ManyToMany(targetEntity=Profil::class)
+     * @ORM\Id
+     * @ORM\ManyToOne(targetEntity=Profil::class)
+     * @ORM\JoinColumn(nullable=false)
      */
     private $IdProfil;
 
     /**
-     * @ORM\ManyToMany(targetEntity=Salarie::class, inversedBy="IdLier")
+     * @ORM\Id
+     * @ORM\ManyToOne(targetEntity=Salarie::class, inversedBy="idRole")
+     * @ORM\JoinColumn(nullable=false)
      */
     private $IdSalarie;
-
-    public function __construct()
-    {
-        $this->IdProfil = new ArrayCollection();
-        $this->IdSalarie = new ArrayCollection();
-    }
-
-    public function getId(): ?int
-    {
-        return $this->id;
-    }
 
     public function getAnnee(): ?\DateTimeInterface
     {
@@ -57,51 +42,35 @@ class Lier
         return $this;
     }
 
-    /**
-     * @return Collection<int, Profil>
-     */
-    public function getIdProfil(): Collection
+    public function getIdProfil(): ?Profil
     {
         return $this->IdProfil;
     }
 
-    public function addIdProfil(Profil $idProfil): self
+    public function setId(?Profil $IdProfil,?Salarie $IdSalarie): self
     {
-        if (!$this->IdProfil->contains($idProfil)) {
-            $this->IdProfil[] = $idProfil;
-        }
+        $this->IdProfil = $IdProfil;
+        $this->IdSalarie = $IdSalarie;
+        return $this;
+    }
+
+    public function setIdProfil(?Profil $IdProfil): self
+    {
+        $this->IdProfil = $IdProfil;
 
         return $this;
     }
 
-    public function removeIdProfil(Profil $idProfil): self
+    public function setIdSalarie(?Salarie $IdSalarie): self
     {
-        $this->IdProfil->removeElement($idProfil);
-
+        $this->IdSalarie = $IdSalarie;
+        
         return $this;
     }
 
-    /**
-     * @return Collection<int, Salarie>
-     */
-    public function getIdSalarie(): Collection
+    public function getIdSalarie(): ?Salarie
     {
         return $this->IdSalarie;
     }
 
-    public function addIdSalarie(Salarie $idSalarie): self
-    {
-        if (!$this->IdSalarie->contains($idSalarie)) {
-            $this->IdSalarie[] = $idSalarie;
-        }
-
-        return $this;
-    }
-
-    public function removeIdSalarie(Salarie $idSalarie): self
-    {
-        $this->IdSalarie->removeElement($idSalarie);
-
-        return $this;
-    }
 }

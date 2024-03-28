@@ -20,17 +20,17 @@ class Preferer
     private $id;
 
     /**
-     * @ORM\ManyToMany(targetEntity=Specialitee::class)
+     * @ORM\ManyToOne(targetEntity=Specialitee::class)
      */
     private $IdSpecialitee;
 
     /**
-     * @ORM\ManyToMany(targetEntity=Classe::class)
+     * @ORM\ManyToOne(targetEntity=Classe::class)
      */
     private $IdClasse;
 
     /**
-     * @ORM\ManyToMany(targetEntity=Entreprise::class, inversedBy="IdPreferer")
+     * @ORM\ManyToOne(targetEntity=Entreprise::class, inversedBy="IdPreferer")
      */
     private $IdEntreprise;
 
