@@ -44,20 +44,9 @@ class Entreprise
      */
     private $Activitee;
 
-    /**
-     * @ORM\ManyToMany(targetEntity=Preferer::class, mappedBy="IdEntreprise")
-     */
-    private $IdPreferer;
-
-    /**
-     * @ORM\ManyToMany(targetEntity=Accueillir::class, mappedBy="IdEntreprise")
-     */
-    private $IdAcceillir;
-
     public function __construct()
     {
-        $this->IdPreferer = new ArrayCollection();
-        $this->IdAcceillir = new ArrayCollection();
+       
     }
 
     public function getId(): ?int
@@ -125,57 +114,4 @@ class Entreprise
         return $this;
     }
 
-    /**
-     * @return Collection<int, Preferer>
-     */
-    public function getIdPreferer(): Collection
-    {
-        return $this->IdPreferer;
-    }
-
-    public function addIdPreferer(Preferer $idPreferer): self
-    {
-        if (!$this->IdPreferer->contains($idPreferer)) {
-            $this->IdPreferer[] = $idPreferer;
-            $idPreferer->addIdEntreprise($this);
-        }
-
-        return $this;
-    }
-
-    public function removeIdPreferer(Preferer $idPreferer): self
-    {
-        if ($this->IdPreferer->removeElement($idPreferer)) {
-            $idPreferer->removeIdEntreprise($this);
-        }
-
-        return $this;
-    }
-
-    /**
-     * @return Collection<int, Accueillir>
-     */
-    public function getIdAcceillir(): Collection
-    {
-        return $this->IdAcceillir;
-    }
-
-    public function addIdAcceillir(Accueillir $idAcceillir): self
-    {
-        if (!$this->IdAcceillir->contains($idAcceillir)) {
-            $this->IdAcceillir[] = $idAcceillir;
-            $idAcceillir->addIdEntreprise($this);
-        }
-
-        return $this;
-    }
-
-    public function removeIdAcceillir(Accueillir $idAcceillir): self
-    {
-        if ($this->IdAcceillir->removeElement($idAcceillir)) {
-            $idAcceillir->removeIdEntreprise($this);
-        }
-
-        return $this;
-    }
 }

@@ -45,11 +45,6 @@ class Salarie
     private $IdPoste;
 
     /**
-     * @ORM\ManyToMany(targetEntity=Lier::class, mappedBy="IdSalarie")
-     */
-    private $IdLier;
-
-    /**
      * @ORM\ManyToOne(targetEntity=Entreprise::class)
      */
     private $IdEntreprise;
@@ -58,7 +53,6 @@ class Salarie
     {
         $this->IdTelephone = new ArrayCollection();
         $this->IdEmail = new ArrayCollection();
-        $this->IdLier = new ArrayCollection();
     }
 
     public function getId(): ?int
@@ -146,33 +140,6 @@ class Salarie
     public function setIdPoste(?Poste $IdPoste): self
     {
         $this->IdPoste = $IdPoste;
-
-        return $this;
-    }
-
-    /**
-     * @return Collection<int, Lier>
-     */
-    public function getIdLier(): Collection
-    {
-        return $this->IdLier;
-    }
-
-    public function addIdLier(Lier $idLier): self
-    {
-        if (!$this->IdLier->contains($idLier)) {
-            $this->IdLier[] = $idLier;
-            $idLier->addIdSalarie($this);
-        }
-
-        return $this;
-    }
-
-    public function removeIdLier(Lier $idLier): self
-    {
-        if ($this->IdLier->removeElement($idLier)) {
-            $idLier->removeIdSalarie($this);
-        }
 
         return $this;
     }
