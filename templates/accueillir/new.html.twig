@@ -1,0 +1,11 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}New Accueillir{% endblock %}
+
+{% block body %}
+    <h1>Create new Accueillir</h1>
+
+    {{ include('accueillir/_form.html.twig') }}
+
+    <a href="{{ path('app_accueillir_index') }}">back to list</a>
+{% endblock %}

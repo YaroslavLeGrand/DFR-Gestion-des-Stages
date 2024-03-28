@@ -1,0 +1,33 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Accueillir index{% endblock %}
+
+{% block body %}
+    <h1>Accueillir index</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Annee</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for accueillir in accueillirs %}
+            <tr>
+                <td>{{ accueillir.Annee ? accueillir.Annee|date('Y-m-d H:i:s') : '' }}</td>
+                <td>
+                    <a href="{{ path('app_accueillir_show', {'IdClasse': accueillir.IdClasse}) }}">show</a>
+                    <a href="{{ path('app_accueillir_edit', {'IdClasse': accueillir.IdClasse}) }}">edit</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="2">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('app_accueillir_new') }}">Create new</a>
+{% endblock %}

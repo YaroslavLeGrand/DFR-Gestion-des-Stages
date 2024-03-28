@@ -1,0 +1,33 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Lier index{% endblock %}
+
+{% block body %}
+    <h1>Lier index</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Annee</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for lier in liers %}
+            <tr>
+                <td>{{ lier.Annee ? lier.Annee|date('Y-m-d H:i:s') : '' }}</td>
+                <td>
+                    <a href="{{ path('app_lier_show', {'IdProfil': lier.IdProfil}) }}">show</a>
+                    <a href="{{ path('app_lier_edit', {'IdProfil': lier.IdProfil}) }}">edit</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="2">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('app_lier_new') }}">Create new</a>
+{% endblock %}
