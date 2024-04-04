@@ -150,6 +150,31 @@ class Salarie
         return $this;
     }
 
+    /**
+     * @return Collection<int, Email>
+     */
+    public function getIdLier(): Collection
+    {
+        return $this->IdLier;
+    }
+
+    public function addIdLier(Lier $IdLier): self
+    {
+        if (!$this->IdLier->contains($IdLier)) {
+            $this->IdLier[] = $IdLier;
+        }
+
+        return $this;
+    }
+
+    public function removeIdLier(Lier $IdLier): self
+    {
+        $this->IdLier->removeElement($IdLier);
+
+        return $this;
+    }
+
+
     public function getIdEntreprise(): ?Entreprise
     {
         return $this->IdEntreprise;

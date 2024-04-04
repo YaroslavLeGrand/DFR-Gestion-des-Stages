@@ -17,8 +17,6 @@ class EntrepriseType extends AbstractType
             ->add('Ville')
             ->add('Pays')
             ->add('Activitee')
-            ->add('IdPreferer')
-            ->add('IdAccueillir')
         ;
     }
 

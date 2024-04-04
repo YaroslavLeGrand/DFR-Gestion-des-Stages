@@ -20,21 +20,21 @@ class Email
     /**
      * @ORM\Column(type="string", length=255)
      */
-    private $Email;
+    private $EmailLibelle;
 
     public function getId(): ?int
     {
         return $this->id;
     }
 
-    public function getEmail(): ?string
+    public function getEmailLibelle(): ?string
     {
-        return $this->Email;
+        return $this->EmailLibelle;
     }
 
-    public function setEmail(string $Email): self
+    public function setEmailLibelle(string $EmailLibelle): self
     {
-        $this->Email = $Email;
+        $this->EmailLibelle = $EmailLibelle;
 
         return $this;
     }
