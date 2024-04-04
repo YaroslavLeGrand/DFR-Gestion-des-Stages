@@ -2,10 +2,13 @@
 
 namespace App\Form;
 
+use App\Entity\Role;
 use App\Entity\Utilisateur;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
+
+use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 
 class UtilisateurType extends AbstractType
 {
@@ -14,7 +17,7 @@ class UtilisateurType extends AbstractType
         $builder
             ->add('Identifiant')
             ->add('MotDePasse')
-            ->add('IdRole')
+            ->add('IdRole',EntityType::class,['class' => Role::class, 'choice_label' => 'Libelle'])
         ;
     }
 

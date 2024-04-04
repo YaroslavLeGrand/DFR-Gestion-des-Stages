@@ -12,24 +12,21 @@ use Doctrine\ORM\Mapping as ORM;
  */
 class Preferer
 {
-    /**
-     * @ORM\Id
-     * @ORM\GeneratedValue
-     * @ORM\Column(type="integer")
-     */
-    private $id;
 
     /**
+     * @ORM\Id
      * @ORM\ManyToOne(targetEntity=Specialitee::class)
      */
     private $IdSpecialitee;
 
     /**
+     * @ORM\Id
      * @ORM\ManyToOne(targetEntity=Classe::class)
      */
     private $IdClasse;
 
     /**
+     * @ORM\Id
      * @ORM\ManyToOne(targetEntity=Entreprise::class, inversedBy="IdPreferer")
      */
     private $IdEntreprise;
@@ -39,11 +36,6 @@ class Preferer
         $this->IdSpecialitee = new ArrayCollection();
         $this->IdClasse = new ArrayCollection();
         $this->IdEntreprise = new ArrayCollection();
-    }
-
-    public function getId(): ?int
-    {
-        return $this->id;
     }
 
     /**
