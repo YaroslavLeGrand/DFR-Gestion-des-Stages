@@ -40,7 +40,7 @@ class Entreprise
     private $Pays;
 
     /**
-     * @ORM\Column(type="string", length=255)
+     * @ORM\Column(type="string", length=255 ,nullable="true")
      */
     private $Activitee;
 
@@ -53,6 +53,11 @@ class Entreprise
      * @ORM\ManyToMany(targetEntity=Accueillir::class, mappedBy="IdEntreprise")
      */
     private $IdAccueillir;
+
+    /**
+     * @ORM\Column(type="string", length=5, nullable=true)
+     */
+    private $CodePostal;
 
     public function __construct()
     {
@@ -178,4 +183,16 @@ class Entreprise
 
     //     return $this;
     // }
+
+    public function getCodePostal(): ?string
+    {
+        return $this->CodePostal;
+    }
+
+    public function setCodePostal(?string $CodePostal): self
+    {
+        $this->CodePostal = $CodePostal;
+
+        return $this;
+    }
 }

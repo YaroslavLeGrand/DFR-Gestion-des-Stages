@@ -15,7 +15,7 @@
         <tbody>
         {% for accueillir in accueillirs %}
             <tr>
-                <td>{{ accueillir.Annee ? accueillir.Annee|date('Y-m-d H:i:s') : '' }}</td>
+                <td>{{ accueillir.Annee ? accueillir.Annee|date('Y-m-d') : '' }}</td>
                 <td>
                     <a href="{{ path('app_accueillir_show', {'IdClasse': accueillir.IdClasse}) }}">show</a>
                     <a href="{{ path('app_accueillir_edit', {'IdClasse': accueillir.IdClasse}) }}">edit</a>
