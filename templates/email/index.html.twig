@@ -9,7 +9,7 @@
         <thead>
             <tr>
                 <th>Id</th>
-                <th>Email</th>
+                <th>EmailLibelle</th>
                 <th>actions</th>
             </tr>
         </thead>
@@ -17,7 +17,7 @@
         {% for email in emails %}
             <tr>
                 <td>{{ email.id }}</td>
-                <td>{{ email.Email }}</td>
+                <td>{{ email.EmailLibelle }}</td>
                 <td>
                     <a href="{{ path('app_email_show', {'id': email.id}) }}">show</a>
                     <a href="{{ path('app_email_edit', {'id': email.id}) }}">edit</a>

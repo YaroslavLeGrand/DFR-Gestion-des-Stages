@@ -1,26 +1,30 @@
 <?php
-namespace App\Formulaire;
+
+namespace App\Form;
 
 use App\Entity\Role;
-use Symfony\Component\Form\AbstractType ;
+use App\Entity\Utilisateur;
+use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
-use Symfony\Component\Form\Extension\Core\Type\TextType;
+use Symfony\Component\OptionsResolver\OptionsResolver;
+
 use Symfony\Bridge\Doctrine\Form\Type\EntityType;
-use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 
-
-
-class UtilisateurType extends AbstractType {
-
-    public function buildForm(FormBuilderInterface $builder, array $option){
-        
-        $builder->add('Identifiant', TextType :: class)
-        ->add('MotDePasse', TextType :: class)
-        ->add('IdRole',EntityType::class,['class' => Role::class, 'choice_label' => 'libelle'])
-        ->add('Sauvegarde', SubmitType :: class);
+class UtilisateurType extends AbstractType
+{
+    public function buildForm(FormBuilderInterface $builder, array $options): void
+    {
+        $builder
+            ->add('Identifiant')
+            ->add('MotDePasse')
+            ->add('IdRole',EntityType::class,['class' => Role::class, 'choice_label' => 'Libelle'])
+        ;
     }
 
+    public function configureOptions(OptionsResolver $resolver): void
+    {
+        $resolver->setDefaults([
+            'data_class' => Utilisateur::class,
+        ]);
+    }
 }
-
-
-?>

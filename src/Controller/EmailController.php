@@ -42,7 +42,7 @@ class EmailController extends AbstractController
 
         return $this->renderForm('email/new.html.twig', [
             'email' => $email,
-            'form' => $form,
+            'form' => $form
         ]);
     }
 
