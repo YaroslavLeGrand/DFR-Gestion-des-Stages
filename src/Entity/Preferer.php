@@ -16,18 +16,21 @@ class Preferer
     /**
      * @ORM\Id
      * @ORM\ManyToOne(targetEntity=Specialitee::class)
+     * @ORM\JoinColumn(nullable=false)
      */
     private $IdSpecialitee;
 
     /**
      * @ORM\Id
      * @ORM\ManyToOne(targetEntity=Classe::class)
+     * @ORM\JoinColumn(nullable=false)
      */
     private $IdClasse;
 
     /**
      * @ORM\Id
-     * @ORM\ManyToOne(targetEntity=Entreprise::class, inversedBy="IdPreferer")
+     * @ORM\ManyToOne(targetEntity=Entreprise::class)
+     * @ORM\JoinColumn(nullable=false)
      */
     private $IdEntreprise;
 
