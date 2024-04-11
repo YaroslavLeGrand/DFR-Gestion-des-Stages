@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>{% block title %}Welcome!{% endblock %}</title>
+        
+    </head>
+    <body>
+        <table>
+            <tr>
+                <th colspan=3>Gestion de la base de donnée</th>
+            </tr>
+            <tr>
+                <td><a href="{{ path('app_utilisateur_index')}}">
+                <button type=submit >Utilisateur</button>
+                </a></td>
+                <td><a href="{{ path('app_accueillir_index')}}">
+                <button type=submit >Accueil</button>
+                </a></td>
+                <td><a href="{{ path('app_entreprise_index')}}">
+                <button type=submit >Entreprise</button>
+                <a></td>
+            </tr>
+            <tr>
+                <td><a href="{{ path('app_role_index')}}">
+                <button type=submit >Role</button>
+                </a></td>
+                <td><a href="{{ path('app_preferer_index')}}">
+                <button type=submit >Prefère</button>
+                </a></td>
+                <td><a href="{{ path('app_salarie_index')}}">
+                <button type=submit >Salarié</button>
+                <a></td>
+            </tr>
+            <tr>
+                <td><a href="{{ path('app_email_index')}}">
+                <button type=submit >Email</button>
+                </a></td>
+                <td><a href="{{ path('app_telephone_index')}}">
+                <button type=submit >Téléphone</button>
+                </a></td>
+                <td><a href="{{ path('app_poste_index')}}">
+                <button type=submit >Poste</button>
+                <a></td>
+            </tr>
+            <tr>
+                <td><a href="{{ path('app_specialitee_index')}}">
+                <button type=submit >Spécialitée</button>
+                </a></td>
+                <td><a href="{{ path('app_classe_index')}}">
+                <button type=submit >Classe</button>
+                </a></td>
+                <td><a href="{{ path('app_profil_index')}}">
+                <button type=submit >Profil</button>
+                <a></td>
+            </tr>
+            <tr>
+                <td><a href="{{ path('app_lier_index')}}">
+                <button type=submit >Lier</button>
+                </a></td>
+                <td><a href="{{ path('app_etudiant_index')}}">
+                <button type=submit >Étudiant</button>
+                </a></td>
+                <td>
+            </tr>
+    </table>
+    </body>
+</html>

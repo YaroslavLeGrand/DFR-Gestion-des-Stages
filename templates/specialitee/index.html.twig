@@ -1,0 +1,35 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Specialitee index{% endblock %}
+
+{% block body %}
+    <h1>Specialitee index</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Libelle</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for specialitee in specialitees %}
+            <tr>
+                <td>{{ specialitee.id }}</td>
+                <td>{{ specialitee.Libelle }}</td>
+                <td>
+                    <a href="{{ path('app_specialitee_show', {'id': specialitee.id}) }}">show</a>
+                    <a href="{{ path('app_specialitee_edit', {'id': specialitee.id}) }}">edit</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="3">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('app_specialitee_new') }}">Create new</a>
+{% endblock %}

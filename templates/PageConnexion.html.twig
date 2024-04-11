@@ -2,13 +2,18 @@
 <html>
     <head>
         <meta charset="UTF-8">
-        <title>{% block title %}Welcome!{% endblock %}</title>
+        <title>{% block title %}Connexion{% endblock %}</title>
         
     </head>
     <body>
-        {% block body %}{% endblock %}
-        <a href="{{ path('ListeEntreprise')}}">
-        <button type=submit >Connction [temp]</button>
-    </a>
+            <form method="post">
+                <label for="username">Identifiant :</label>
+                <input type="text" id="identifiant" name="identifiant" required><br>
+
+                <label for="password">Mot de passe :</label>
+                <input type="password" id="password" name="password" required><br>
+
+                <input type="submit" value="Se connecter">
+            </form>
     </body>
 </html>

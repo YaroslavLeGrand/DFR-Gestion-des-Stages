@@ -1,0 +1,18 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Preferer{% endblock %}
+
+{% block body %}
+    <h1>Preferer</h1>
+
+    <table class="table">
+        <tbody>
+        </tbody>
+    </table>
+
+    <a href="{{ path('app_preferer_index') }}">back to list</a>
+
+    <a href="{{ path('app_preferer_edit', {'IdSpecialitee': preferer.IdSpecialitee}) }}">edit</a>
+
+    {{ include('preferer/_delete_form.html.twig') }}
+{% endblock %}

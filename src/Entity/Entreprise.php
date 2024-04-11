@@ -3,6 +3,8 @@
 namespace App\Entity;
 
 use App\Repository\EntrepriseRepository;
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
@@ -38,9 +40,30 @@ class Entreprise
     private $Pays;
 
     /**
-     * @ORM\Column(type="string", length=255)
+     * @ORM\Column(type="string", length=255 ,nullable="true")
      */
     private $Activitee;
+
+    /**
+     * @ORM\ManyToMany(targetEntity=Preferer::class, mappedBy="IdEntreprise")
+     */
+    private $IdPreferer;
+
+    /**
+     * @ORM\ManyToMany(targetEntity=Accueillir::class, mappedBy="IdEntreprise")
+     */
+    private $IdAccueillir;
+
+    /**
+     * @ORM\Column(type="string", length=5, nullable=true)
+     */
+    private $CodePostal;
+
+    public function __construct()
+    {
+        $this->IdPreferer = new ArrayCollection();
+        $this->IdAccueillir = new ArrayCollection();
+    }
 
     public function getId(): ?int
     {
@@ -103,6 +126,72 @@ class Entreprise
     public function setActivitee(string $Activitee): self
     {
         $this->Activitee = $Activitee;
+
+        return $this;
+    }
+
+    /**
+     * @return Collection<int, Preferer>
+     */
+    public function getIdPreferer(): Collection
+    {
+        return $this->IdPreferer;
+    }
+
+    public function addIdPreferer(Preferer $idPreferer): self
+    {
+        if (!$this->IdPreferer->contains($idPreferer)) {
+            $this->IdPreferer[] = $idPreferer;
+            $idPreferer->addIdEntreprise($this);
+        }
+
+        return $this;
+    }
+
+    public function removeIdPreferer(Preferer $idPreferer): self
+    {
+        if ($this->IdPreferer->removeElement($idPreferer)) {
+            $idPreferer->removeIdEntreprise($this);
+        }
+
+        return $this;
+    }
+
+    /**
+     * @return Collection<int, Accueillir>
+     */
+    public function getIdAccueillir(): Collection
+    {
+        return $this->IdAccueillir;
+    }
+
+    // public function addIdAcceillir(Accueillir $idAccueillir): self
+    // {
+    //     if (!$this->IdAccueillir->contains($idAccueillir)) {
+    //         $this->IdAccueillir[] = $idAccueillir;
+    //         $idAccueillir->addIdEntreprise($this);
+    //     }
+
+    //     return $this;
+    // }
+
+    // public function removeIdAcceillir(Accueillir $idAccueillir): self
+    // {
+    //     if ($this->IdAccueillir->removeElement($idAccueillir)) {
+    //         $idAccueillir->removeIdEntreprise($this);
+    //     }
+
+    //     return $this;
+    // }
+
+    public function getCodePostal(): ?string
+    {
+        return $this->CodePostal;
+    }
+
+    public function setCodePostal(?string $CodePostal): self
+    {
+        $this->CodePostal = $CodePostal;
 
         return $this;
     }

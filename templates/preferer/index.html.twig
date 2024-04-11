@@ -1,0 +1,31 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Preferer index{% endblock %}
+
+{% block body %}
+    <h1>Preferer index</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for preferer in preferers %}
+            <tr>
+                <td>
+                    <a href="{{ path('app_preferer_show', {'IdSpecialitee': preferer.IdSpecialitee}) }}">show</a>
+                    <a href="{{ path('app_preferer_edit', {'IdSpecialitee': preferer.IdSpecialitee}) }}">edit</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="1">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('app_preferer_new') }}">Create new</a>
+{% endblock %}
