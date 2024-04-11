@@ -20,12 +20,13 @@ class AccueillirType extends AbstractType
     {
         $builder
             ->add('Annee')
-            ->add('IdClasse',EntityType::class,['class' => Classe::class, 'choice_label' => 'Libelle','mapped' => false])
-            ->add('IdSpecialitee',EntityType::class,['class' => Specialitee::class, 'choice_label' => 'Libelle','mapped' => false])
-            ->add('IdEtudiant',EntityType::class,['class' => Etudiant::class, 'choice_label' => function ($etudiant) {
+            ->add('IdClasse',EntityType::class,['class' => Classe::class, 'choice_label' => 'Libelle'])
+            ->add('IdSpecialitee',EntityType::class,['class' => Specialitee::class, 'choice_label' => 'Libelle'])
+            ->add('IdEtudiant',EntityType::class,['class' => Etudiant::class, 'choice_label' => function($etudiant)
+            {
                 return $etudiant->getNom() . ' ' . $etudiant->getPrenom();
-            },'mapped' => false])
-            ->add('IdEntreprise',EntityType::class,['class' => Entreprise::class, 'choice_label' => 'RS','mapped' => false])
+            }])
+            ->add('IdEntreprise',EntityType::class,['class' => Entreprise::class, 'choice_label' => 'RS'])
         ;
     }
 

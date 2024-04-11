@@ -5,6 +5,8 @@ namespace App\Repository;
 use App\Entity\Preferer;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
 use Doctrine\Persistence\ManagerRegistry;
+use Doctrine\Common\Collections\ArrayCollection;
+
 
 /**
  * @extends ServiceEntityRepository<Preferer>

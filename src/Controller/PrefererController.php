@@ -6,6 +6,7 @@ use App\Entity\Preferer;
 use App\Form\PrefererType;
 use App\Repository\PrefererRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use Doctrine\Common\Collections\ArrayCollection;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
