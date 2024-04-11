@@ -4,6 +4,8 @@ namespace App\Entity;
 
 use App\Repository\ClasseRepository;
 use Doctrine\ORM\Mapping as ORM;
+use Doctrine\Common\Collections\ArrayCollection;
+
 
 /**
  * @ORM\Entity(repositoryClass=ClasseRepository::class)

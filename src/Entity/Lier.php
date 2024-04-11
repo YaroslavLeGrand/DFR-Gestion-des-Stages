@@ -47,13 +47,6 @@ class Lier
         return $this->IdProfil;
     }
 
-    public function setId(?Profil $IdProfil,?Salarie $IdSalarie): self
-    {
-        $this->IdProfil = $IdProfil;
-        $this->IdSalarie = $IdSalarie;
-        return $this;
-    }
-
     public function setIdProfil(?Profil $IdProfil): self
     {
         $this->IdProfil = $IdProfil;

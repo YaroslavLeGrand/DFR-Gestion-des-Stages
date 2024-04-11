@@ -17,7 +17,7 @@
         {% for email in emails %}
             <tr>
                 <td>{{ email.id }}</td>
-                <td>{{ email.EmailLibelle }}</td>
+                <td>{{ email.Email }}</td>
                 <td>
                     <a href="{{ path('app_email_show', {'id': email.id}) }}">show</a>
                     <a href="{{ path('app_email_edit', {'id': email.id}) }}">edit</a>
