@@ -48,7 +48,7 @@ class PageController extends AbstractController {
     }
 
     /**
-     * @Route("BigBother.crypto",name="GestionAdmin")
+     * @Route("BigBrother.crypto",name="GestionAdmin")
      */
     function GestionAdmin(Request $requeteHTTP,ManagerRegistry $doctrine){
         

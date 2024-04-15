@@ -68,16 +68,6 @@ class Accueillir
         return $this->IdSpecialitee;
     }
 
-    public function setId(?Specialitee $IdSpecialitee,?Classe $IdClasse,?Etudiant $IdEtudiant,?Entreprise $IdEntreprise): self
-    {
-        $this->IdSpecialitee = $IdSpecialitee;
-        $this->IdClasse = $IdClasse;
-        $this->IdEtudiant = $IdEtudiant;
-        $this->IdEntreprise = $IdEntreprise;
-
-        return $this;
-    }
-
     public function setIdEntreprise(?Entreprise $IdEntreprise): self
     {
         $this->IdEntreprise = $IdEntreprise;
