@@ -15,10 +15,10 @@
         <tbody>
         {% for lier in liers %}
             <tr>
-                <td>{{ lier.Annee ? lier.Annee|date('Y-m-d H:i:s') : '' }}</td>
+                <td>{{ lier.Annee ? lier.Annee|date('Y-m-d') : '' }}</td>
                 <td>
-                    <a href="{{ path('app_lier_show', {'IdProfil': lier.IdProfil}) }}">show</a>
-                    <a href="{{ path('app_lier_edit', {'IdProfil': lier.IdProfil}) }}">edit</a>
+                    <a href="{{ path('app_lier_show', {'IdProfil': lier.IdProfil.id, 'IdSalarie': lier.IdSalarie.id}) }}">show</a>
+                    <a href="{{ path('app_lier_edit', {'IdProfil': lier.IdProfil.id, 'IdSalarie': lier.IdSalarie.id}) }}">edit</a>
                 </td>
             </tr>
         {% else %}

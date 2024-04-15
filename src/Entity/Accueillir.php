@@ -46,6 +46,21 @@ class Accueillir
      */
     private $IdEntreprise;
 
+    public function GetId()
+    {
+        return ['IdSpecialitee' => $this->IdSpecialitee,
+        'IdClasse' =>$this->IdClasse,
+        'IdEtudiant' => $this->IdEtudiant,
+        'IdEntreprise' => $this->IdEntreprise];
+  
+    }
+
+    public function GetIdString()
+    {
+        return $this->IdSpecialitee.'-'.$this->IdClasse.'-'.$this->IdEtudiant.'-'.$this->IdEntreprise;
+  
+    }
+
     public function getAnnee(): ?\DateTimeInterface
     {
         return $this->Annee;
