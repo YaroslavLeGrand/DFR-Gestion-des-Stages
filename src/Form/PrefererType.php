@@ -18,9 +18,9 @@ class PrefererType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options): void
     {
         $builder
-            ->add('IdSpecialitee',EntityType::class,['class' => Specialitee::class, 'choice_label' => 'Libelle','mapped' => false])
-            ->add('IdClasse',EntityType::class,['class' => Classe::class, 'choice_label' => 'Libelle','mapped' => false])
-            ->add('IdEntreprise',EntityType::class,['class' => Entreprise::class, 'choice_label' => 'RS','mapped' => false])
+            ->add('IdSpecialitee',EntityType::class,['class' => Specialitee::class, 'choice_label' => 'Libelle'])
+            ->add('IdClasse',EntityType::class,['class' => Classe::class, 'choice_label' => 'Libelle'])
+            ->add('IdEntreprise',EntityType::class,['class' => Entreprise::class, 'choice_label' => 'RS'])
         ;
     }
 

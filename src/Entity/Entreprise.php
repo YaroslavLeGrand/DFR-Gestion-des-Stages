@@ -45,11 +45,6 @@ class Entreprise
     private $Activitee;
 
     /**
-     * @ORM\ManyToMany(targetEntity=Preferer::class, mappedBy="IdEntreprise")
-     */
-    private $IdPreferer;
-
-    /**
      * @ORM\ManyToMany(targetEntity=Accueillir::class, mappedBy="IdEntreprise")
      */
     private $IdAccueillir;
@@ -59,10 +54,20 @@ class Entreprise
      */
     private $CodePostal;
 
+    /**
+     * @ORM\OneToMany(targetEntity=Preferer::class, mappedBy="IdEntreprise")
+     */
+    private $preferers;
+
+    /**
+     * @ORM\OneToMany(targetEntity=Accueillir::class, mappedBy="IdEntreprise")
+     */
+    private $accueillirs;
+
     public function __construct()
     {
-        $this->IdPreferer = new ArrayCollection();
-        $this->IdAccueillir = new ArrayCollection();
+        $this->preferers = new ArrayCollection();
+        $this->accueillirs = new ArrayCollection();
     }
 
     public function getId(): ?int
@@ -130,59 +135,6 @@ class Entreprise
         return $this;
     }
 
-    /**
-     * @return Collection<int, Preferer>
-     */
-    public function getIdPreferer(): Collection
-    {
-        return $this->IdPreferer;
-    }
-
-    public function addIdPreferer(Preferer $idPreferer): self
-    {
-        if (!$this->IdPreferer->contains($idPreferer)) {
-            $this->IdPreferer[] = $idPreferer;
-            $idPreferer->addIdEntreprise($this);
-        }
-
-        return $this;
-    }
-
-    public function removeIdPreferer(Preferer $idPreferer): self
-    {
-        if ($this->IdPreferer->removeElement($idPreferer)) {
-            $idPreferer->removeIdEntreprise($this);
-        }
-
-        return $this;
-    }
-
-    /**
-     * @return Collection<int, Accueillir>
-     */
-    public function getIdAccueillir(): Collection
-    {
-        return $this->IdAccueillir;
-    }
-
-    // public function addIdAcceillir(Accueillir $idAccueillir): self
-    // {
-    //     if (!$this->IdAccueillir->contains($idAccueillir)) {
-    //         $this->IdAccueillir[] = $idAccueillir;
-    //         $idAccueillir->addIdEntreprise($this);
-    //     }
-
-    //     return $this;
-    // }
-
-    // public function removeIdAcceillir(Accueillir $idAccueillir): self
-    // {
-    //     if ($this->IdAccueillir->removeElement($idAccueillir)) {
-    //         $idAccueillir->removeIdEntreprise($this);
-    //     }
-
-    //     return $this;
-    // }
 
     public function getCodePostal(): ?string
     {
@@ -192,6 +144,66 @@ class Entreprise
     public function setCodePostal(?string $CodePostal): self
     {
         $this->CodePostal = $CodePostal;
+
+        return $this;
+    }
+
+    /**
+     * @return Collection<int, Preferer>
+     */
+    public function getPreferers(): Collection
+    {
+        return $this->preferers;
+    }
+
+    public function addPreferer(Preferer $preferer): self
+    {
+        if (!$this->preferers->contains($preferer)) {
+            $this->preferers[] = $preferer;
+            $preferer->setIdEntreprise($this);
+        }
+
+        return $this;
+    }
+
+    public function removePreferer(Preferer $preferer): self
+    {
+        if ($this->preferers->removeElement($preferer)) {
+            // set the owning side to null (unless already changed)
+            if ($preferer->getIdEntreprise() === $this) {
+                $preferer->setIdEntreprise(null);
+            }
+        }
+
+        return $this;
+    }
+
+    /**
+     * @return Collection<int, Accueillir>
+     */
+    public function getAccueillirs(): Collection
+    {
+        return $this->accueillirs;
+    }
+
+    public function addAccueillir(Accueillir $accueillir): self
+    {
+        if (!$this->accueillirs->contains($accueillir)) {
+            $this->accueillirs[] = $accueillir;
+            $accueillir->setIdEntreprise($this);
+        }
+
+        return $this;
+    }
+
+    public function removeAccueillir(Accueillir $accueillir): self
+    {
+        if ($this->accueillirs->removeElement($accueillir)) {
+            // set the owning side to null (unless already changed)
+            if ($accueillir->getIdEntreprise() === $this) {
+                $accueillir->setIdEntreprise(null);
+            }
+        }
 
         return $this;
     }

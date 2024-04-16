@@ -41,25 +41,10 @@ class Accueillir
 
     /**
      * @ORM\Id
-     * @ORM\ManyToOne(targetEntity=Entreprise::class, inversedBy="accueillir")
+     * @ORM\ManyToOne(targetEntity=Entreprise::class, inversedBy="accueillirs")
      * @ORM\JoinColumn(nullable=false)
      */
     private $IdEntreprise;
-
-    public function GetId()
-    {
-        return ['IdSpecialitee' => $this->IdSpecialitee,
-        'IdClasse' =>$this->IdClasse,
-        'IdEtudiant' => $this->IdEtudiant,
-        'IdEntreprise' => $this->IdEntreprise];
-  
-    }
-
-    public function GetIdString()
-    {
-        return $this->IdSpecialitee.'-'.$this->IdClasse.'-'.$this->IdEtudiant.'-'.$this->IdEntreprise;
-  
-    }
 
     public function getAnnee(): ?\DateTimeInterface
     {
@@ -81,13 +66,6 @@ class Accueillir
     public function getIdSpecialitee(): ?Specialitee
     {
         return $this->IdSpecialitee;
-    }
-
-    public function setIdEntreprise(?Entreprise $IdEntreprise): self
-    {
-        $this->IdEntreprise = $IdEntreprise;
-
-        return $this;
     }
 
     public function setIdEtudiant(?Etudiant $IdEtudiant): self
@@ -120,6 +98,13 @@ class Accueillir
     public function getIdEntreprise(): ?Entreprise
     {
         return $this->IdEntreprise;
+    }
+
+    public function setIdEntreprise(?Entreprise $IdEntreprise): self
+    {
+        $this->IdEntreprise = $IdEntreprise;
+
+        return $this;
     }
 
 }

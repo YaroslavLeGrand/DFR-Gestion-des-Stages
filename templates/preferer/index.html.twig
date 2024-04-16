@@ -15,8 +15,8 @@
         {% for preferer in preferers %}
             <tr>
                 <td>
-                    <a href="{{ path('app_preferer_show', {'IdSpecialitee': preferer.IdSpecialitee}) }}">show</a>
-                    <a href="{{ path('app_preferer_edit', {'IdSpecialitee': preferer.IdSpecialitee}) }}">edit</a>
+                    <a href="{{ path('app_preferer_show', {'IdSpecialitee': preferer.IdSpecialitee.id,'IdClasse': preferer.IdClasse.id,'IdEntreprise': preferer.IdEntreprise.id}) }}">show</a>
+                    <a href="{{ path('app_preferer_edit', {'IdSpecialitee': preferer.IdSpecialitee.id,'IdClasse': preferer.IdClasse.id,'IdEntreprise': preferer.IdEntreprise.id}) }}">edit</a>
                 </td>
             </tr>
         {% else %}
