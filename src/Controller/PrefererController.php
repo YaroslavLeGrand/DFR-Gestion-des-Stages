@@ -6,7 +6,6 @@ use App\Entity\Preferer;
 use App\Form\PrefererType;
 use App\Repository\PrefererRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
-use Doctrine\Common\Collections\ArrayCollection;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
@@ -48,7 +47,7 @@ class PrefererController extends AbstractController
     }
 
     /**
-     * @Route("/{IdSpecialitee}", name="app_preferer_show", methods={"GET"})
+     * @Route("/{IdSpecialitee}/{IdClasse}/{IdEntreprise}", name="app_preferer_show", methods={"GET"})
      */
     public function show(Preferer $preferer): Response
     {
@@ -58,7 +57,7 @@ class PrefererController extends AbstractController
     }
 
     /**
-     * @Route("/{IdSpecialitee}/edit", name="app_preferer_edit", methods={"GET", "POST"})
+     * @Route("/{IdSpecialitee}/{IdClasse}/{IdEntreprise}/edit", name="app_preferer_edit", methods={"GET", "POST"})
      */
     public function edit(Request $request, Preferer $preferer, PrefererRepository $prefererRepository): Response
     {
@@ -78,11 +77,11 @@ class PrefererController extends AbstractController
     }
 
     /**
-     * @Route("/{IdSpecialitee}", name="app_preferer_delete", methods={"POST"})
+     * @Route("/{IdSpecialitee}/{IdClasse}/{IdEntreprise}", name="app_preferer_delete", methods={"POST"})
      */
     public function delete(Request $request, Preferer $preferer, PrefererRepository $prefererRepository): Response
     {
-        if ($this->isCsrfTokenValid('delete'.$preferer->getIdSpecialitee(), $request->request->get('_token'))) {
+        if ($this->isCsrfTokenValid('delete'.$preferer->getIdSpecialitee()->getId(), $request->request->get('_token'))) {
             $prefererRepository->remove($preferer, true);
         }
 

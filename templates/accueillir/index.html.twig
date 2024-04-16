@@ -17,8 +17,8 @@
             <tr>
                 <td>{{ accueillir.Annee ? accueillir.Annee|date('Y-m-d') : '' }}</td>
                 <td>
-                    <a href="{{ path('app_accueillir_show', {'IdClasse': accueillir.IdClasse}) }}">show</a>
-                    <a href="{{ path('app_accueillir_edit', {'IdClasse': accueillir.IdClasse}) }}">edit</a>
+                    <a href="{{ path('app_accueillir_show', {'IdClasse': accueillir.IdClasse.id ,'IdSpecialitee': accueillir.IdSpecialitee.id,'IdEtudiant': accueillir.IdEtudiant.id,'IdEntreprise': accueillir.IdEntreprise.id }) }}">show</a>
+                    <a href="{{ path('app_accueillir_edit', {'IdClasse': accueillir.IdClasse.id ,'IdSpecialitee': accueillir.IdSpecialitee.id,'IdEtudiant': accueillir.IdEtudiant.id,'IdEntreprise': accueillir.IdEntreprise.id }) }}">edit</a>
                 </td>
             </tr>
         {% else %}

@@ -47,7 +47,7 @@ class AccueillirController extends AbstractController
     }
 
     /**
-     * @Route("/{IdClasse}", name="app_accueillir_show", methods={"GET"})
+     * @Route("/{IdClasse}/{IdSpecialitee}/{IdEtudiant}/{IdEntreprise}", name="app_accueillir_show", methods={"GET"})
      */
     public function show(Accueillir $accueillir): Response
     {
@@ -57,7 +57,7 @@ class AccueillirController extends AbstractController
     }
 
     /**
-     * @Route("/{IdClasse}/edit", name="app_accueillir_edit", methods={"GET", "POST"})
+     * @Route("/{IdClasse}/{IdSpecialitee}/{IdEtudiant}/{IdEntreprise}/edit", name="app_accueillir_edit", methods={"GET", "POST"})
      */
     public function edit(Request $request, Accueillir $accueillir, AccueillirRepository $accueillirRepository): Response
     {
@@ -77,11 +77,11 @@ class AccueillirController extends AbstractController
     }
 
     /**
-     * @Route("/{IdClasse}", name="app_accueillir_delete", methods={"POST"})
+     * @Route("/{IdClasse}/{IdSpecialitee}/{IdEtudiant}/{IdEntreprise}", name="app_accueillir_delete", methods={"POST"})
      */
     public function delete(Request $request, Accueillir $accueillir, AccueillirRepository $accueillirRepository): Response
     {
-        if ($this->isCsrfTokenValid('delete'.$accueillir->getIdClasse(), $request->request->get('_token'))) {
+        if ($this->isCsrfTokenValid('delete'.$accueillir->getIdClasse()->getId(), $request->request->get('_token'))) {
             $accueillirRepository->remove($accueillir, true);
         }
 

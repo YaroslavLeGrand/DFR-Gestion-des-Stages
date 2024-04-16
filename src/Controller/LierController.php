@@ -47,7 +47,7 @@ class LierController extends AbstractController
     }
 
     /**
-     * @Route("/{IdProfil}", name="app_lier_show", methods={"GET"})
+     * @Route("/{IdProfil}/{IdSalarie}", name="app_lier_show", methods={"GET"})
      */
     public function show(Lier $lier): Response
     {
@@ -57,7 +57,7 @@ class LierController extends AbstractController
     }
 
     /**
-     * @Route("/{IdProfil}/edit", name="app_lier_edit", methods={"GET", "POST"})
+     * @Route("/{IdProfil}/{IdSalarie}/edit", name="app_lier_edit", methods={"GET", "POST"})
      */
     public function edit(Request $request, Lier $lier, LierRepository $lierRepository): Response
     {
@@ -77,11 +77,11 @@ class LierController extends AbstractController
     }
 
     /**
-     * @Route("/{IdProfil}", name="app_lier_delete", methods={"POST"})
+     * @Route("/{IdProfil}/{IdSalarie}", name="app_lier_delete", methods={"POST"})
      */
     public function delete(Request $request, Lier $lier, LierRepository $lierRepository): Response
     {
-        if ($this->isCsrfTokenValid('delete'.$lier->getIdProfil(), $request->request->get('_token'))) {
+        if ($this->isCsrfTokenValid('delete'.$lier->getIdProfil()->GetId(), $request->request->get('_token'))) {
             $lierRepository->remove($lier, true);
         }
 
