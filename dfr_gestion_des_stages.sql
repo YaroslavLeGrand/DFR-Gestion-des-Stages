@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : 127.0.0.1:3306
--- Généré le : lun. 15 avr. 2024 à 08:28
+-- Généré le : mar. 16 avr. 2024 à 07:19
 -- Version du serveur : 5.7.36
 -- Version de PHP : 7.4.26
 
@@ -108,7 +108,9 @@ INSERT INTO `doctrine_migration_versions` (`version`, `executed_at`, `execution_
 ('DoctrineMigrations\\Version20240404130919', '2024-04-04 13:09:25', 60),
 ('DoctrineMigrations\\Version20240404131817', '2024-04-04 13:18:22', 134),
 ('DoctrineMigrations\\Version20240404131949', '2024-04-04 13:19:54', 123),
-('DoctrineMigrations\\Version20240404142900', '2024-04-04 14:29:35', 303);
+('DoctrineMigrations\\Version20240404142900', '2024-04-04 14:29:35', 303),
+('DoctrineMigrations\\Version20240416063747', '2024-04-16 06:37:56', 180),
+('DoctrineMigrations\\Version20240416065129', '2024-04-16 06:51:34', 277);
 
 -- --------------------------------------------------------
 
@@ -240,6 +242,14 @@ CREATE TABLE IF NOT EXISTS `preferer` (
   KEY `IDX_1C2A702F6B192E` (`id_classe_id`),
   KEY `IDX_1C2A7021A867E8F` (`id_entreprise_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Déchargement des données de la table `preferer`
+--
+
+INSERT INTO `preferer` (`id_specialitee_id`, `id_classe_id`, `id_entreprise_id`) VALUES
+(1, 1, 1),
+(1, 1, 2);
 
 -- --------------------------------------------------------
 
