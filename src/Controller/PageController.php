@@ -1,6 +1,6 @@
 <?php
 namespace App\Controller;
-session_start();
+//session_start();
 
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\Routing\Annotation\Route;
