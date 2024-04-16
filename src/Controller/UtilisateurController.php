@@ -35,6 +35,7 @@ class UtilisateurController extends AbstractController
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
+            $utilisateur->setMotDePasse(password_hash($utilisateur->getMotDePasse(), PASSWORD_BCRYPT, ["cost"=>12]));
             $utilisateurRepository->add($utilisateur, true);
 
             return $this->redirectToRoute('app_utilisateur_index', [], Response::HTTP_SEE_OTHER);
