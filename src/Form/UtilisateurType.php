@@ -15,8 +15,12 @@ class UtilisateurType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options): void
     {
         $builder
-            ->add('Identifiant')
-            ->add('MotDePasse')
+            ->add('Identifiant', null, [
+                'label' => 'Nom d\'utilisateur',
+            ])
+            ->add('MotDePasse', null, [
+                'label' => 'Mot de passe',
+            ])
             ->add('IdRole',EntityType::class,['class' => Role::class, 'choice_label' => 'Libelle'])
         ;
     }

@@ -11,22 +11,43 @@ use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
-use Symfony\Component\Form\Extension\Core\Type\SubmitType;
-
 use Symfony\Bridge\Doctrine\Form\Type\EntityType;
-
 
 class SalarieType extends AbstractType
 {
     public function buildForm(FormBuilderInterface $builder, array $options): void
     {
         $builder
-            ->add('Nom',TextType :: class)
-            ->add('Prenom',TextType :: class)
-            ->add('Telephone',EntityType::class,['class' => Telephone::class, 'choice_label' => 'Telephone','mapped' => false])
-            ->add('Email', EntityType::class,['class' => Email::class, 'choice_label' => 'Email','mapped' => false])
-            ->add('Poste',EntityType::class,['class' => Poste::class, 'choice_label' => 'Libelle','mapped' => false])
-            ->add('Entreprise',EntityType::class,['class' => Entreprise::class, 'choice_label' => 'RS','mapped' => false])
+            ->add('Nom', TextType::class, [
+                'label' => 'Nom',
+            ])
+            ->add('Prenom', TextType::class, [
+                'label' => 'Prénom',
+            ])
+            ->add('Telephone', EntityType::class, [
+                'class' => Telephone::class,
+                'choice_label' => 'Numero',
+                'label' => 'Téléphone',
+                'mapped' => false,
+            ])
+            ->add('Email', EntityType::class, [
+                'class' => Email::class,
+                'choice_label' => 'Email',
+                'label' => 'Email',
+                'mapped' => false,
+            ])
+            ->add('Poste', EntityType::class, [
+                'class' => Poste::class,
+                'choice_label' => 'Libelle',
+                'label' => 'Poste',
+                'mapped' => false,
+            ])
+            ->add('Entreprise', EntityType::class, [
+                'class' => Entreprise::class,
+                'choice_label' => 'RS',
+                'label' => 'Entreprise',
+                'mapped' => false,
+            ])
         ;
     }
 
