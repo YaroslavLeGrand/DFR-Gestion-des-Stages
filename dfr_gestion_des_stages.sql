@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : 127.0.0.1:3306
--- Généré le : mar. 16 avr. 2024 à 07:19
+-- Généré le : lun. 03 juin 2024 à 08:06
 -- Version du serveur : 5.7.36
 -- Version de PHP : 7.4.26
 
@@ -406,7 +406,7 @@ CREATE TABLE IF NOT EXISTS `utilisateur` (
   `mot_de_passe` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
   PRIMARY KEY (`id`),
   KEY `IDX_1D1C63B389E8BDC` (`id_role_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
 -- Déchargement des données de la table `utilisateur`
@@ -414,7 +414,7 @@ CREATE TABLE IF NOT EXISTS `utilisateur` (
 
 INSERT INTO `utilisateur` (`id`, `id_role_id`, `identifiant`, `mot_de_passe`) VALUES
 (1, 1, 'Admin', '$2y$12$VBQ9oJi97LDguIz0uJud7u2Qnm0YEGP0LTraDtcqOWL8CSZer7QUy'),
-(2, 1, 'Yaroslav', '1234');
+(3, 1, 'Yaroslav', '$2y$12$/SolJrOSb5Pr6.GaPxLZtuTO2fk9DOFnW2MSCiSWfnhT6cHkk9qta');
 
 --
 -- Contraintes pour les tables déchargées
